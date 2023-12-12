@@ -8,9 +8,9 @@ public class ParseText
 {
     private static string ErrorLogPath = Path.Combine(Directory.GetCurrentDirectory(), "InputErrors.log");
     private static string DateTimeStamp = DateTime.Now.ToString("yyyy/MM/dd hh:mm");
-    public static Dictionary<int, Dictionary<string, object?>> Parse(IList<Configuration> Configs, IEnumerable<string> TextFileLines)
+    public static List<Dictionary<string, object?>> Parse(IList<Configuration> Configs, IEnumerable<string> TextFileLines)
     {
-        var seqdict = new Dictionary<int, Dictionary<string, object?>>();
+        var seqdict = new List<Dictionary<string, object?>>();
         var errorLog = new List<string>();
         for (var idx = 0; idx < TextFileLines.Count(); idx++)
         {
@@ -31,7 +31,7 @@ public class ParseText
                     };
                     dict.Add(cfg.ColumnName, value);
                 }
-                seqdict.Add(idx + 1, dict);
+                seqdict.Add(dict);
             }
             catch (Exception ex)
             {

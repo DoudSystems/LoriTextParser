@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Lori.Parser;
+﻿using Lori.Parser;
 using ParseTextFile;
 Console.WriteLine("Text File Parser");
 
@@ -15,4 +14,3 @@ var configs = new List<Configuration>() {
 
 var seqdict = ParseText.Parse(configs, lines);
 
-var x = 0;
